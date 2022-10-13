@@ -79,18 +79,22 @@
 	  }
   }
 
-// çıktı: up.svg</code></pre><h3 id="536fa71d-359b-4f9b-95bd-afce4fe2e71e" class="">Liste Türü</h3><pre id="08c491fd-087e-4d4e-8271-8fce84789fec" class="code code-wrap"><code>pubic class Main {
-	// main javada başlangıç noktasıdır
-	public static void main(String[] args) {
-		String[] krediler = {&quot;Hızlı Kredi&quot;,&quot;Maaşını Halkbank&#x27;tan&quot; ,&quot;Mutlu Emekli&quot;}; // köşeli parantez onun bir liste yani array olduğunu gösterir.
-
-		System.out.println(krediler[0]); // krediler dizisinin 0.elemanı
-		System.out.println(krediler[1]); // krediler dizisinin 1.elemanı
-		System.out.println(krediler[2]); // krediler dizisinin 2.elemanı
-		
+// çıktı: up.svg</code></pre>
+<h3>
+  Liste Türü
+</h3>
+<pre>
+<code>
+  pubic class Main {
+    // main javada başlangıç noktasıdır
+      public static void main(String[] args) {
+        String[] krediler = {&quot;Hızlı Kredi&quot;,&quot;Maaşını Halkbank&#x27;tan&quot; ,&quot;Mutlu Emekli&quot;}; // köşeli parantez onun bir liste yani array olduğunu gösterir.
+	System.out.println(krediler[0]); // krediler dizisinin 0.elemanı
+	System.out.println(krediler[1]); // krediler dizisinin 1.elemanı
+	System.out.println(krediler[2]); // krediler dizisinin 2.elemanı
 	}
 }
-
+<br/>
 // çıktı :
 // Hızlı Kredi
 // Maaşını Halkbank&#x27;tan
