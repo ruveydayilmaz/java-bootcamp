@@ -343,11 +343,88 @@ public class Main{
 3. UI
 
 Niye böyle bir yapı kullanılır? Mantıksal parçalara bölerek daha kolay yönetmek ve sürdürebilirlik
-```
-// -- Main.java --
-public class Main{ 
-	public static void main(String[] args) {
+```java
+// -- 📂 entities > Product.java --
+// Veri tabanı ile yazılım arasında ilişki kurmayı sağlayan nesnelerdir.
+public class Product { 
+	private int id;
+    private Stirng name;
+    private double unitPrice;
+}
 
-	}
+public Product() {
+
+}
+
+public Product(int id, String name, double unitPrice) {
+    this.id = id;
+    this.name = name;
+    this.unitPrice = unitPrice;
+}
+
+public int getId() {
+    return id;
+}
+```
+```java
+// -- 📂 dataAccess > JdbcProductDao.java --
+import oopWithNLayeredApp.entities.Product;
+
+public class JdbcProductDao { 
+    public void add(Product product) {
+        // buraya sadece veri tabanı erişim kodları yazılır.
+    }
+}
+```
+```java
+// -- 📂 business > ProductManager.java --
+import oopWithNLayeredApp.entities.Product;
+import oopWithNLayeredApp.dataAccess.JdbcProductDao;
+
+public class ProductManager { 
+    public void add(Product product) {
+        // iş kuralları burada yazılır.
+    }
+
+    JdbcProductDao productDao = new JdbcProductDao();
+    productDao.add(product)
+}
+```
+```java
+// -- 📂 dataAccess > ProductDao.java --
+import oopWithNLayeredApp.entities.Product;
+
+public interface ProductDao { 
+    // interface : sadece kendi bünyesinden türeyen alt sınıfların kullanılması, doldurması zorunda olduğu içi boş bir metot tanımlaması gerçekleştirilen yapılardır.
+    void add(Product product);
+}
+```
+```java
+// -- 📂 dataAccess > JdbcProductDao.java --
+import oopWithNLayeredApp.entities.Product;
+
+public class JdbcProductDao implements ProductDao {  // bu, JdbcProductDao bir ProductDao'dur demek ve ProductDao'nun kurallarına uymak zorundadır.
+    public void add(Product product) {
+        
+    }
+}
+```
+```java
+// -- 📂 business > ProductManager.java --
+import oopWithNLayeredApp.entities.Product;
+import oopWithNLayeredApp.dataAccess.JdbcProductDao;
+
+public class ProductManager { 
+    private ProductDao productDao;
+
+    public ProductManager(ProductDao productDao) {
+        this.productDao = productDao;
+    }    
+
+    public void add(Product product) {
+        // iş kuralları
+
+         productDao.add(product)
+    }
 }
 ```
